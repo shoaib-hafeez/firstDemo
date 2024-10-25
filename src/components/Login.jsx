@@ -51,7 +51,7 @@ const LoginForm = () => {
                 email: email,
                 password: password,
             };
-            console.log(payload)
+            // console.log(payload)
             setEmail('');
             setPassword('');
             navigate("/Layout");
