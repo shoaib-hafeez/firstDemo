@@ -56,7 +56,7 @@ const CartTable = () => {
                             ))}
                             <tr>
                                 <td colSpan="4" style={{ textAlign: 'right', fontWeight: 'bold' }}>Total:</td>
-                                <td style={{ fontWeight: 'bold' }}>Rs. {total}</td>
+                                <td style={{ fontWeight: 'bold' }}>Rs.{total}</td>
                                 <td>
                                     <Link to={'/UserDetails'} >
                                         <button className='checkoutBtn'>Checkout</button>

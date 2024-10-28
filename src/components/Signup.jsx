@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom' ;
 import { AppContext } from '../context/context';
 import {Link , Navigate} from 'react-router-dom' 
 import NavbarJsx from '../components/Navbar';
+import FormNavbar from './FormNavbar';
 const SignupForm = () => {
 
 
@@ -80,7 +81,6 @@ const {email,setEmail , password, setPassword ,signup , fullName , setFullName} 
 
   return (
     <div className='form_jsx'>
-      {/* <NavbarJsx/>  b */}
       <div className="form_main">
         <div className="signupForm">
         <h1 style={{textAlign:'center'}}>Join us today!</h1>
