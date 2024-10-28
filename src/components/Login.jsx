@@ -32,18 +32,6 @@ const LoginForm = () => {
         const isLoginSuccessful = login({ email, password });
         const isEmailValid = validateEmail(email);
         const isPasswordValid = validatePassword(password);
-          
-        // if (!isEmailValid) {
-        //     setEmailError('Please enter a valid email.');
-        // } else {
-        //     setEmailError('');
-        // }
-
-        // if (!isPasswordValid) {
-        //     setPasswordError('Password must be at least 8 characters.');
-        // } else {
-        //     setPasswordError('');
-        // }
 
         if (isLoginSuccessful) {
             setValidated(true);
@@ -51,7 +39,7 @@ const LoginForm = () => {
                 email: email,
                 password: password,
             };
-            // console.log(payload)
+            console.log(payload)
             setEmail('');
             setPassword('');
             navigate("/Layout");

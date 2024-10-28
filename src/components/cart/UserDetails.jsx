@@ -137,7 +137,7 @@ const UserDetails = () => {
               <Form.Control
 
                 type="tel"
-                placeholder="03148080508"
+                placeholder="0312XXXXXXX"
                 value={phoneNumber}
                 maxLength={11}
                 onChange={(e) => setPhoneNumber(e.target.value)}

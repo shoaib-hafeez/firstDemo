@@ -47,7 +47,6 @@ const ProductDetails = () => {
                         
                         <div className="d_buttons">
                             {productQuantity === 0 ? (
-                                // Show Add to Cart button if product is not in the cart
                                 <div className="cart_button">
                                     <button onClick={() => addToCart(productDetails)}>Add to Cart</button>
                                 </div>
@@ -61,7 +60,6 @@ const ProductDetails = () => {
                                             <span className="d_plus" onClick={() => increment(productDetails.id)}>+</span>
                                         </>
                                     ) : (
-                                        // Show Delete icon if quantity is 0
                                         <span className="d_delete">
                                             <MdDeleteForever onClick={() => removeFromCart(productDetails.id)} className='tableDeleteButton' />
                                         </span>
