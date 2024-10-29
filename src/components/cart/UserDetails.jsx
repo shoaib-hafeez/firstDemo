@@ -5,12 +5,15 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import NavbarJsx from '../Navbar';
 import Footer from '../Footer';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 
 const UserDetails = () => {
 
-  const {removeToCart , cartItems} =  useContext(CartContext)
+  const navigate = useNavigate()
+
+  const { clearCart } =  useContext(CartContext);
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -62,9 +65,9 @@ const UserDetails = () => {
         state: state,
         zip: zip,
       }
-      console.log(payload)
 
 
+      clearCart()
       setFirstName('');
       setLastName('');
       setEmail('');
@@ -75,7 +78,8 @@ const UserDetails = () => {
       setZip('');
       setIsValidEmail(null);
       setErrors({});
-      removeToCart(cartItems);
+      navigate('/Thankyou')
+      
     }
   };
 
@@ -137,7 +141,7 @@ const UserDetails = () => {
               <Form.Control
 
                 type="tel"
-                placeholder="0312XXXXXXX"
+                placeholder="03XXXXXXXXX"
                 value={phoneNumber}
                 maxLength={11}
                 onChange={(e) => setPhoneNumber(e.target.value)}
@@ -205,14 +209,13 @@ const UserDetails = () => {
             </Form.Group>
           </Row>
 
-          <Link to={"/Thankyou"} className='userSubmitBtn' onClick={()=> removeToCart(cartItems)} >
+           
             <div className="userBtn">
               <button type="submit" className="userSubmitBtn" >
                 Submit
               </button>
             </div>
-          </Link>
-        </Form>
+         </Form>
       </div>
 
       <br />

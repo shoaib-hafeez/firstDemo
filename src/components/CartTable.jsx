@@ -66,7 +66,10 @@ const CartTable = () => {
                         </tbody>
                     </Table>
                 ) : (
+                  
+
                     <p style={{textAlign:'center',marginTop:'90px', fontWeight:'700', color:'darkcyan', fontSize:'22px'}}>Your cart is empty</p>
+                    
                 )}
             </div>
             <br /><br />

@@ -518,7 +518,7 @@ input::-webkit-inner-spin-button {
 .searchBar{
   width: 100%;
   display: flex;
-  /* max-width: 90%; */
+  margin-top: 20px;
   
   justify-content: center;
 }
