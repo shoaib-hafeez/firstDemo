@@ -4,9 +4,9 @@ import Layout from './Layout/Layout'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginForm from './components/Login';
 import SignupForm from './components/Signup';
-import Mens from './components/Mens';
-import Womens from './components/Womens';
-import Kids from './components/Kids';
+import Beauty from './components/Beauty';
+import HomeDecorate from './components/HomeDecorate';
+import SkinCare from './components/SkinCare';
 import ProductDetails from './components/ProductDetails';
 import CartTable from './components/CartTable';
 import UserDetails from './components/cart/UserDetails';
@@ -28,16 +28,16 @@ function App() {
       element: <LoginForm/>,
     },
     {
-      path: "/Mens",
-      element: <Mens/>,
+      path: "/Beauty",
+      element: <Beauty/>,
     },
     {
-      path: "/Womens",
-      element: <Womens/>,
+      path: "/home_decorate",
+      element: <HomeDecorate/>,
     },
     {
-      path: "/Kids",
-      element: <Kids/>,
+      path: "/SkinCare",
+      element: <SkinCare/>,
     },
     {
       path: "/ProductDetails/:id",

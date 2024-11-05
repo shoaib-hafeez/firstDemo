@@ -8,8 +8,7 @@ const AppProvider = ({ children }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loggedInUser, setLoggedInUser] = useState(null); 
-  const [fullName, setFullName] = useState('');
-  console.log(user)
+  const [fullName, setFullName] = useState(''); 
   
 
   useEffect(() => {
@@ -41,7 +40,8 @@ const AppProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('user');
+    localStorage.removeItem('user' );
+    localStorage.removeItem('loggedInUser');
     setEmail('')
     setPassword('')
   };

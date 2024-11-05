@@ -31,11 +31,6 @@ const NavbarJsx = () => {
         }
     }, []);
 
-    // const logout = () => {
-    //     setLoggedInUser(null);
-    //     localStorage.removeItem('loggedInUser'); 
-    //   };
-
     return (
         <Navbar expand="lg" className="bg-body-tertiary navbarjsx   ">
             <Container container-fluid>
@@ -47,16 +42,18 @@ const NavbarJsx = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link as={Link} to='/Mens' >Mens</Nav.Link>
-                        <Nav.Link as={Link} to='/Womens'>Womens</Nav.Link>
-                        <Nav.Link as={Link} to='/Kids'>Kids</Nav.Link>
+                        <Nav.Link as={Link} to='/beauty' >Beauty</Nav.Link>
+                        <Nav.Link as={Link} to='/home_decorate'>Home</Nav.Link>
+                        <Nav.Link as={Link} to='/SkinCare'>SkinCare</Nav.Link>
                     </Nav>
-                   
+
                     {/* <h5>TotalCost <span style={{backgroundColor:'black', color:'white', padding:'0px 5px ', borderRadius:'10px'}}>Rs.{total}</span></h5> */}
                     <Link to={'/CartTable'} className='cartLink'>
                         <h5 style={{ padding: "0px 20px" }}>
-                            cart <sup className='sup_count'>{cartItems.length}</sup> <br />
-                            <span style={{ color: 'black', fontSize: '15px' }}>TotalCost <span style={{ backgroundColor: 'black', color: 'white', padding: '0px 5px ', borderRadius: '10px' }}>Rs.{total}</span></span>
+                        cart <sup className='sup_count'>{cartItems.length}</sup> <br />
+                        <span style={{ color: 'black', fontSize: '15px' }}>
+                         TotalCost <span style={{ backgroundColor: 'black', color: 'white', padding: '0px 5px ', borderRadius: '10px' }}>
+                         Rs.{total}</span></span>
                         </h5>
 
                     </Link>
