@@ -6,7 +6,8 @@ import LoginForm from './components/Login';
 import SignupForm from './components/Signup';
 import Beauty from './components/Beauty';
 import HomeDecorate from './components/HomeDecorate';
-import SkinCare from './components/SkinCare';
+import Women from './components/Women';
+import Kitchen from './components/Kitchen';
 import ProductDetails from './components/ProductDetails';
 import CartTable from './components/CartTable';
 import UserDetails from './components/cart/UserDetails';
@@ -36,8 +37,8 @@ function App() {
       element: <HomeDecorate/>,
     },
     {
-      path: "/SkinCare",
-      element: <SkinCare/>,
+      path: "/women",
+      element: <Women/>,
     },
     {
       path: "/ProductDetails/:id",
@@ -55,6 +56,10 @@ function App() {
     {
       path: "/Thankyou",
       element: <Thankyou/>,
+    },
+    {
+      path: "/kitchen",
+      element: <Kitchen/>,
     },
     
     

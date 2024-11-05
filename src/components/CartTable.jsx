@@ -23,13 +23,16 @@ const CartTable = () => {
         <div className='cartTable_jsx'>
             <NavbarJsx />
 
+            {/* <div className="cart_flex"> */}
+
+
             <div className="cartTable">
                 <h2>Shopping Cart</h2>
                 {cartItems.length > 0 ? (
                     <Table>
                         <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>Product Image</th>
                                 <th>Product Name</th>
                                 <th>Quantity</th>
                                 <th>Price</th>
@@ -40,8 +43,22 @@ const CartTable = () => {
                         <tbody>
                             {cartItems.map((item) => (
                                 <tr key={item.id}>
-                                    <td>{item.id}</td>
-                                    <td>{item.title}</td>
+
+                                    <td>
+                                        <Link to={`/ProductDetails/${item.id}`}>
+                                            <img
+                                                src={item.thumbnail}
+                                                alt={item.title}
+                                                style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                                            />
+                                        </Link>
+                                    </td>
+
+                                    <td>
+                                    <Link to={`/ProductDetails/${item.id}`}className='productTableLink'>
+                                        {item.title} <br />{item.tags}
+                                        </Link>
+                                    </td>
                                     <td>
                                         <button className='tableMinusBtn' onClick={() => handleDecrement(item.id, item.quantity)}>-</button>
                                         <span>{item.quantity}</span>
@@ -66,10 +83,10 @@ const CartTable = () => {
                         </tbody>
                     </Table>
                 ) : (
-                  
 
-                    <p style={{textAlign:'center',marginTop:'90px', fontWeight:'700', color:'darkcyan', fontSize:'22px'}}>Your cart is empty</p>
-                    
+
+                    <p style={{ textAlign: 'center', marginTop: '90px', fontWeight: '700', color: 'darkcyan', fontSize: '22px' }}>Your cart is empty</p>
+
                 )}
             </div>
             <br /><br />

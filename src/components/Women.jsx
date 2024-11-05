@@ -2,19 +2,17 @@ import React, { useEffect, useState } from 'react'
 import NavbarJsx from './Navbar';
 import ProCard from './ProductCard';
 import Footer from './Footer';
-import homeimage from "../assets/stylish-living-room-table-panorama-dark-cyan-color-wall-molding-modern-dining-transparent-chairs-new-sofa-210870549.webp"
+import women from "../assets/womans-hand-is-holding-colorful-paper-shopping-bags-style-dark-cyan-amber_921860-108369.avif"
 
-const HomeDecorate = () => {
-
-
-  const [homeProducts, setHomeProducts] = useState([])
+const Women = () => {
 
 
+  const [womenProducts, setWomenProducts] = useState([])
 
   useEffect(() => {
-    fetch('https://dummyjson.com/products/category/home-decoration')
+    fetch('https://dummyjson.com/products/category/womens-dresses')
       .then((res) => res.json())
-      .then((json) => setHomeProducts(json.products));
+      .then((json) => setWomenProducts(json.products));
   })
   return (
     <div className="category_main">
@@ -23,21 +21,21 @@ const HomeDecorate = () => {
       <NavbarJsx />
       </div>
       <div className="category">
-        <img src={homeimage} className='category_hero' alt="image" />
+        <img src={women} className='category_hero' alt="image" />
 
       </div>
-      <br />
 
 
       <div className='productSection'>
+        <br />
           <div className="category_headings">
 
-        <h1>Home decoration</h1>
+        <h1>Women</h1>
           </div>
           <br />
         <div className='product_container'>
 
-          {homeProducts.map((product, ind) => (
+          {womenProducts.map((product, ind) => (
             <ProCard product={product} key={ind} />
           ))}
 
@@ -51,6 +49,4 @@ const HomeDecorate = () => {
   )
 }
 
-
-
-export default HomeDecorate
+export default Women

@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 
 
 export const CartContext = createContext()
@@ -10,30 +10,30 @@ const CartProvider = ({ children }) => {
     const [productDetails, setProductDetails] = useState({})
     const [showQuantityControls, setShowQuantityControls] = useState(false);
     const [beautyProducts, setBeautyProducts] = useState([]);
-    const [skincareProducts, setSkincareProducts] = useState([]);
+    const [womenProducts, setWomenProducts] = useState([]);
     const [homeProducts, setHomeProducts] = useState([]);
     const [kitchenProducts, setKitchenProducts] = useState([]);
-    
+
 
     useEffect(() => {
 
         fetch('https://dummyjson.com/products/category/beauty')
-          .then((res) => res.json())
-          .then((json) => setBeautyProducts(json.products.slice(0, 4)));
-    
-        fetch('https://dummyjson.com/products/category/skin-care')
-          .then((res) => res.json())
-          .then((json) => setSkincareProducts(json.products.slice(0, 4)));
-    
+            .then((res) => res.json())
+            .then((json) => setBeautyProducts(json.products.slice(0, 4)));
+
+        fetch('https://dummyjson.com/products/category/womens-dresses')
+            .then((res) => res.json())
+            .then((json) => setWomenProducts(json.products.slice(0, 4)));
+
         fetch('https://dummyjson.com/products/category/home-decoration')
-          .then((res) => res.json())
-          .then((json) => setHomeProducts(json.products.slice(0, 4)));
+            .then((res) => res.json())
+            .then((json) => setHomeProducts(json.products.slice(0, 4)));
 
         fetch('https://dummyjson.com/products/category/kitchen-accessories')
-          .then((res) => res.json())
-          .then((json) => setKitchenProducts(json.products.slice(0, 4)));
-      }, []);
-    
+            .then((res) => res.json())
+            .then((json) => setKitchenProducts(json.products.slice(0, 4)));
+    }, []);
+
 
 
     const increment = (id) => {
@@ -48,7 +48,7 @@ const CartProvider = ({ children }) => {
                 item.id === id
                     ? { ...item, quantity: item.quantity > 0 ? item.quantity - 1 : 0 }
                     : item
-            ).filter(item => item.quantity > 0) 
+            ).filter(item => item.quantity > 0)
         );
     };
 
@@ -71,7 +71,7 @@ const CartProvider = ({ children }) => {
 
     }
 
-    const clearCart = ()=>{
+    const clearCart = () => {
         setCartItems([])
     }
 
@@ -84,11 +84,11 @@ const CartProvider = ({ children }) => {
             setProductDetails,
             showQuantityControls,
             setShowQuantityControls,
-            clearCart , 
+            clearCart,
             beautyProducts, setBeautyProducts,
-            skincareProducts, setSkincareProducts,
+            womenProducts, setWomenProducts,
             homeProducts, setHomeProducts,
-            kitchenProducts , setKitchenProducts,
+            kitchenProducts, setKitchenProducts,
 
 
         }}>

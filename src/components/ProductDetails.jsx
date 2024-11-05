@@ -37,14 +37,15 @@ const ProductDetails = () => {
                                 </div>
                             </div>
                         </div>
-                        <p>{productDetails.category}</p>
+                        <p>{productDetails.tags}</p>
                         <h2 className="d_price">RS. {productDetails.price}</h2>
+                        <p>stock.. <b style={{ backgroundColor: 'black', color: 'white', padding: '2px 10px', borderRadius: '10px' }}>{productDetails.stock}</b></p>
+                        <p>Rating..<b style={{ backgroundColor: 'black', color: 'white', padding: '2px 10px', borderRadius: '10px' }}>{productDetails.rating}</b> </p>
                         <h2>Description</h2>
                         <p>{productDetails.description}</p>
-                        <br />
                         <hr />
                         <br />
-                        
+
                         <div className="d_buttons">
                             {productQuantity === 0 ? (
                                 <div className="cart_button">
@@ -71,13 +72,7 @@ const ProductDetails = () => {
                         <br />
                         <div className="d_shoping">
                             <span><i className="fa-solid fa-truck-fast"></i></span>
-                            <div className="d_heading">
-                                <h3>Shipping</h3>
-                                <p className="d_shipping">
-                                    Enter Your Postal For Delivery Availability
-                                </p>
-                                <hr />
-                            </div>
+
                         </div>
                     </div>
                 </div>

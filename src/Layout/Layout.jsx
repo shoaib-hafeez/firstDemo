@@ -4,16 +4,16 @@ import NavbarJsx from '../components/Navbar';
 import { CartContext } from '../context/CartContext';
 import ProCard from '../components/ProductCard';
 import Carousel from 'react-bootstrap/Carousel';
-import image1 from '../assets/shop-online.jpg';
-import image2 from '../assets/Edenrobe-Haute-Summer-Collections-2022.jpeg';
-import image3 from '../assets/2.webp';
+import image1 from '../assets/zarla-makeup-logos-4096x2731-20211110.webp';
+import image2 from '../assets/stylish-living-room-table-panorama-dark-cyan-color-wall-molding-modern-dining-transparent-chairs-new-sofa-210870549.webp';
+import image3 from '../assets/womans-hand-is-holding-colorful-paper-shopping-bags-style-dark-cyan-amber_921860-108369.avif';
 import Footer from '../components/Footer';
 
 const Layout = () => {
 
-  const { skincareProducts, beautyProducts, homeProducts , kitchenProducts } = useContext(CartContext);
+  const { womenProducts, beautyProducts, homeProducts, kitchenProducts } = useContext(CartContext);
 
-console.log(kitchenProducts)
+
   return (
     <div className='home_page'>
       <div className="header">
@@ -48,14 +48,14 @@ console.log(kitchenProducts)
       </div>
 
       <div className="productSection">
-        <h1>Skincare</h1>
+        <h1>Women</h1>
         <div className="product_container">
-          {skincareProducts.map((product, ind) => (
+          {womenProducts.map((product, ind) => (
             <ProCard product={product} key={ind} />
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <Link to="/skinCare" className='seeMoreAction'>
+          <Link to="/women" className='seeMoreAction'>
             <button className="see-more-btn">See More</button>
           </Link>
         </div>
