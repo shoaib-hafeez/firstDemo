@@ -248,6 +248,7 @@
   background-color: darkcyan;
   padding: 40px 0px;
   color: wheat;
+  bottom: 0;
 
 }
 
@@ -654,4 +655,9 @@ td button {
 }
 .productTableLink:hover{
   color: blue;
+}
+.noProduct{
+  height: 41vh;
+  width: 100%;
+  text-align: center;
 }

@@ -6,13 +6,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Link } from 'react-router-dom';
-import { BsFillCartPlusFill } from "react-icons/bs";
 import { CartContext } from '../context/CartContext';
 import { AppContext } from '../context/context';
 import useCartTotal from '../hooks/useCartTotal';
 
 
-const NavbarJsx = () => {
+const Navbarjsx = () => {
 
     const { cartItems } = useContext(CartContext)
     const { setLoggedInUser, logout, fullName, setFullName } = useContext(AppContext)
@@ -42,10 +41,15 @@ const NavbarJsx = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link as={Link} to='/beauty' >Beauty</Nav.Link>
+                        {/* <Nav.Link as={Link} to='/beauty' >Beauty</Nav.Link>
                         <Nav.Link as={Link} to='/home_decorate'>Home</Nav.Link>
                         <Nav.Link as={Link} to='/women'>Women</Nav.Link>
-                        <Nav.Link as={Link} to='/kitchen'>Kitchen</Nav.Link>
+                        <Nav.Link as={Link} to='/kitchen'>Kitchen</Nav.Link> */}
+                        <Nav.Link as={Link} to='/category/beauty'>Beauty</Nav.Link>
+                        <Nav.Link as={Link} to='/category/home_decorate'>Home Decor</Nav.Link>
+                        <Nav.Link as={Link} to='/category/women'>Women</Nav.Link>
+                        <Nav.Link as={Link} to='/category/kitchen'>Kitchen</Nav.Link>
+
                     </Nav>
 
                     {/* <h5>TotalCost <span style={{backgroundColor:'black', color:'white', padding:'0px 5px ', borderRadius:'10px'}}>Rs.{total}</span></h5> */}
@@ -87,4 +91,4 @@ const NavbarJsx = () => {
     );
 };
 
-export default NavbarJsx;
+export default Navbarjsx;

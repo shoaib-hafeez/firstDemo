@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom' ;
 import { AppContext } from '../context/context';
 import {Link , Navigate} from 'react-router-dom' 
 import NavbarJsx from '../components/Navbar';
-import FormNavbar from './FormNavbar';
+// import FormNavbar from './FormNavbar';
 const SignupForm = () => {
 
 

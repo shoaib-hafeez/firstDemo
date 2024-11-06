@@ -11,7 +11,32 @@ import Footer from '../components/Footer';
 
 const Layout = () => {
 
-  const { womenProducts, beautyProducts, homeProducts, kitchenProducts } = useContext(CartContext);
+  const [beautyProducts, setBeautyProducts] = useState([]);
+  const [womenProducts, setWomenProducts] = useState([]);
+  const [homeProducts, setHomeProducts] = useState([]);
+  const [kitchenProducts, setKitchenProducts] = useState([]);
+
+
+  useEffect(() => {
+
+
+    fetch('https://dummyjson.com/products/category/beauty')
+      .then((res) => res.json())
+      .then((json) => setBeautyProducts(json.products.slice(0, 4)));
+
+    fetch('https://dummyjson.com/products/category/womens-dresses')
+      .then((res) => res.json())
+      .then((json) => setWomenProducts(json.products.slice(0, 4)));
+
+    fetch('https://dummyjson.com/products/category/home-decoration')
+      .then((res) => res.json())
+      .then((json) => setHomeProducts(json.products.slice(0, 4)));
+
+    fetch('https://dummyjson.com/products/category/kitchen-accessories')
+      .then((res) => res.json())
+      .then((json) => setKitchenProducts(json.products.slice(0, 4)));
+  }, []);
+
 
 
   return (
@@ -34,55 +59,59 @@ const Layout = () => {
       </div>
 
       <div className="productSection">
-        <h1>Beauty</h1>
+        <h1 style={{ textAlign: 'center' }}>Beauty</h1>
+        <br />
         <div className="product_container">
           {beautyProducts.map((product, ind) => (
             <ProCard product={product} key={ind} />
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <Link to="/beauty" className='seeMoreAction'>
+          <Link to="/category/beauty" className='seeMoreAction'>
             <button className="see-more-btn">See More</button>
           </Link>
         </div>
       </div>
 
       <div className="productSection">
-        <h1>Women</h1>
+        <h1 style={{ textAlign: 'center' }}>Women</h1>
+        <br />
         <div className="product_container">
           {womenProducts.map((product, ind) => (
             <ProCard product={product} key={ind} />
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <Link to="/women" className='seeMoreAction'>
+          <Link to="/category/women" className='seeMoreAction'>
             <button className="see-more-btn">See More</button>
           </Link>
         </div>
       </div>
 
       <div className="productSection">
-        <h1>Home Decorate</h1>
+        <h1 style={{ textAlign: 'center' }}>Home Decorate</h1>
+        <br />
         <div className="product_container">
           {homeProducts.map((product, ind) => (
             <ProCard product={product} key={ind} />
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <Link to="/home_decorate" className='seeMoreAction'>
+          <Link to="/category/home_decorate" className='seeMoreAction'>
             <button className="see-more-btn">See More</button>
           </Link>
         </div>
       </div>
       <div className="productSection">
-        <h1>Kitchen</h1>
+        <h1 style={{ textAlign: 'center' }}>Kitchen</h1>
+        <br />
         <div className="product_container">
           {kitchenProducts.map((product, ind) => (
             <ProCard product={product} key={ind} />
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <Link to="/home_decorate" className='seeMoreAction'>
+          <Link to="/category/kitchen" className='seeMoreAction'>
             <button className="see-more-btn">See More</button>
           </Link>
         </div>

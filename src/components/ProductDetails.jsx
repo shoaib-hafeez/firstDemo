@@ -3,21 +3,20 @@ import NavbarJsx from './Navbar';
 import Footer from './Footer';
 import { useParams } from 'react-router';
 import { CartContext } from '../context/CartContext';
-import { MdDeleteForever } from "react-icons/md";  // Delete icon
+import { MdDeleteForever } from "react-icons/md";
 
 const ProductDetails = () => {
     const { id } = useParams();
     const { increment, decrement, cartItems, addToCart, removeFromCart, setProductDetails, productDetails } = useContext(CartContext);
 
-    // Check if the product is in the cart
     const productInCart = cartItems.find(item => item.id === +id);
-    const productQuantity = productInCart?.quantity || 0; // Get product quantity, default to 0 if not in cart
+    const productQuantity = productInCart?.quantity || 0;
 
     useEffect(() => {
         fetch(`https://dummyjson.com/products/${id}`)
             .then(res => res.json())
             .then(json => setProductDetails(json));
-    }, [id]);
+    }, [ ]);
 
     return (
         <div className='product_details_jsx'>

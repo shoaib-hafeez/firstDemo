@@ -15,7 +15,7 @@ const Footer = () => {
                       Karachi, Pakistan</p>
 
                
-                 <p> <BsTelephoneFill />  +923148080508</p>
+                 <p> <BsTelephoneFill />  +923171234567</p>
             </div>
             <div className="footer_contaactUs">
                 

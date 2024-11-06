@@ -9,31 +9,7 @@ const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
     const [productDetails, setProductDetails] = useState({})
     const [showQuantityControls, setShowQuantityControls] = useState(false);
-    const [beautyProducts, setBeautyProducts] = useState([]);
-    const [womenProducts, setWomenProducts] = useState([]);
-    const [homeProducts, setHomeProducts] = useState([]);
-    const [kitchenProducts, setKitchenProducts] = useState([]);
-
-
-    useEffect(() => {
-
-        fetch('https://dummyjson.com/products/category/beauty')
-            .then((res) => res.json())
-            .then((json) => setBeautyProducts(json.products.slice(0, 4)));
-
-        fetch('https://dummyjson.com/products/category/womens-dresses')
-            .then((res) => res.json())
-            .then((json) => setWomenProducts(json.products.slice(0, 4)));
-
-        fetch('https://dummyjson.com/products/category/home-decoration')
-            .then((res) => res.json())
-            .then((json) => setHomeProducts(json.products.slice(0, 4)));
-
-        fetch('https://dummyjson.com/products/category/kitchen-accessories')
-            .then((res) => res.json())
-            .then((json) => setKitchenProducts(json.products.slice(0, 4)));
-    }, []);
-
+   
 
 
     const increment = (id) => {
@@ -85,10 +61,6 @@ const CartProvider = ({ children }) => {
             showQuantityControls,
             setShowQuantityControls,
             clearCart,
-            beautyProducts, setBeautyProducts,
-            womenProducts, setWomenProducts,
-            homeProducts, setHomeProducts,
-            kitchenProducts, setKitchenProducts,
 
 
         }}>
