@@ -1,19 +1,19 @@
 import { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
-import { useNavigate } from 'react-router-dom' ;
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/context';
-import {Link , Navigate} from 'react-router-dom' 
+import { Link, Navigate } from 'react-router-dom'
 import NavbarJsx from '../components/Navbar';
 // import FormNavbar from './FormNavbar';
 const SignupForm = () => {
 
 
-const {email,setEmail , password, setPassword ,signup , fullName , setFullName} = useContext(AppContext)
+  const { email, setEmail, password, setPassword, signup, fullName, setFullName } = useContext(AppContext)
 
   const [validated, setValidated] = useState(false);
- 
+
   const [confirmPassword, setConfirmPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
@@ -22,7 +22,7 @@ const {email,setEmail , password, setPassword ,signup , fullName , setFullName} 
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [fullNameError, setFullNameError] = useState('');
 
-  
+
   const navigate = useNavigate()
 
   const validateEmail = (email) => {
@@ -40,36 +40,36 @@ const {email,setEmail , password, setPassword ,signup , fullName , setFullName} 
     const doPasswordsMatch = password === confirmPassword;
 
     if (isEmailValid && isPasswordValid && doPasswordsMatch) {
-        setValidated(true);
-        
-        const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
-        
-  
-        const newUser = {
-            fullName: fullName,
-            email: email,
-            password: password
-        };
-        
-        existingUsers.push(newUser);
+      setValidated(true);
 
-        localStorage.setItem('users', JSON.stringify(existingUsers));
+      const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
 
-        signup({ email, password, fullName });
 
-        navigate('/Layout');
-        setFullName('');
-        setEmail('');
-        setPassword('');
+      const newUser = {
+        fullName: fullName,
+        email: email,
+        password: password
+      };
+
+      existingUsers.push(newUser);
+
+      localStorage.setItem('users', JSON.stringify(existingUsers));
+
+      signup({ email, password, fullName });
+
+      navigate('/Layout');
+      setFullName('');
+      setEmail('');
+      setPassword('');
     } else {
-        if (!isEmailValid) 
-            setEmailError('Please enter a valid email.');
-        if (!isPasswordValid) 
-            setPasswordError('Password must be at least 8 characters.');
-        if (!doPasswordsMatch) 
-            setConfirmPasswordError('Passwords do not match.');
+      if (!isEmailValid)
+        setEmailError('Please enter a valid email.');
+      if (!isPasswordValid)
+        setPasswordError('Password must be at least 8 characters.');
+      if (!doPasswordsMatch)
+        setConfirmPasswordError('Passwords do not match.');
     }
-};
+  };
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -81,9 +81,13 @@ const {email,setEmail , password, setPassword ,signup , fullName , setFullName} 
 
   return (
     <div className='form_jsx'>
+      <div className="login_image">
+
+      </div>
       <div className="form_main">
+
         <div className="signupForm">
-        <h1 style={{textAlign:'center'}}>Join us today!</h1>
+          <h1 style={{ textAlign: 'center' , fontWeight:'100' }}>Join us today!</h1> <br />
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formFirstName">
               <Form.Label>Full Name</Form.Label>
@@ -140,7 +144,7 @@ const {email,setEmail , password, setPassword ,signup , fullName , setFullName} 
                     cursor: 'pointer'
                   }}
                 >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  {showPassword ?  <FaEye />: <FaEyeSlash />}
                 </span>
                 {passwordError && (
                   <Form.Control.Feedback type="invalid">
@@ -171,7 +175,7 @@ const {email,setEmail , password, setPassword ,signup , fullName , setFullName} 
                     cursor: 'pointer'
                   }}
                 >
-                  {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                  {showConfirmPassword ?   <FaEye /> :<FaEyeSlash />}
                 </span>
                 {confirmPasswordError && (
                   <Form.Control.Feedback type="invalid">
@@ -181,13 +185,13 @@ const {email,setEmail , password, setPassword ,signup , fullName , setFullName} 
               </div>
             </Form.Group>
 
-            <Button className='submit-btn mt-3 w-100' variant="success" type="submit">
+            <Button className='submit-btn mt-3 w-100' style={{backgroundColor:'darkcyan'}} type="submit">
               Signup
             </Button>
             <br /> <br />
-           <div className="login_link">
-           <p>Already have an account?</p> <Link to={'/LoginForm'}>Login</Link>
-           </div>
+            <div className="login_link">
+              <p>Already have an account?</p> <Link to={'/LoginForm'}>Login</Link>
+            </div>
           </Form>
         </div>
       </div>

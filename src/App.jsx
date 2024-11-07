@@ -12,6 +12,9 @@ import ProductDetails from './components/ProductDetails';
 import CartTable from './components/CartTable';
 import UserDetails from './components/cart/UserDetails';
 import Thankyou from './components/cart/Thankyou';
+import MensLayout from './Category/MensLayout';
+import WomensLayout from './Category/WomensLayout';
+import HouseLayout from './Category/Houselayout'
 
 
 function App() {
@@ -32,14 +35,7 @@ function App() {
       path: "/category/:categoryName",
       element: <Category/>,
     },
-    // {
-    //   path: "/home_decorate",
-    //   element: <HomeDecorate/>,
-    // },
-    // {
-    //   path: "/women",
-    //   element: <Women/>,
-    // },
+   
     {
       path: "/ProductDetails/:id",
       element: <ProductDetails/>,
@@ -57,10 +53,23 @@ function App() {
       path: "/Thankyou",
       element: <Thankyou/>,
     },
-    // {
-    //   path: "/kitchen",
-    //   element: <Kitchen/>,
-    // },
+    {
+      path: "/MensLayout",
+      element: <MensLayout/>,
+    },
+    {
+      path: "/Category/:page",
+      element: <ProductDetails/>,
+    },
+    {
+      path: "/WomensLayout",
+      element: <WomensLayout/>,
+    },
+    {
+      path: "/HouseLayout",
+      element: <HouseLayout/>,
+    },
+   
     
     
   ]);

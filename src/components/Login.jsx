@@ -64,9 +64,13 @@ const LoginForm = () => {
 
     return (
         <div className='form_jsx'>
+            <div className="login_image">
+                
+            </div>
             <div className="form_main">
+
                 <div className="loginForm">
-                    <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Welcome back!</h1>
+                    <h1 style={{ textAlign: 'center', marginBottom: '20px', fontWeight:'100' }}>User Login Form</h1>
                     <Form noValidate validated={validated} onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label className='label'>Email address</Form.Label>
@@ -104,7 +108,7 @@ const LoginForm = () => {
                                         cursor: 'pointer'
                                     }}
                                 >
-                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                    {showPassword ? <FaEye />:<FaEyeSlash />}
                                 </span>
                                 {passwordError && (
                                     <Form.Control.Feedback type="invalid">
@@ -114,7 +118,7 @@ const LoginForm = () => {
                             </div>
                         </Form.Group>
 
-                        <Button className='submit-btn mt-3 w-100' variant="success" type="submit">
+                        <Button className='submit-btn mt-3 w-100' style={{backgroundColor:'darkcyan'}} type="submit">
                             Login
                         </Button>
                         <br /><br />

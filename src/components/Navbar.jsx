@@ -12,6 +12,7 @@ import useCartTotal from '../hooks/useCartTotal';
 
 
 const Navbarjsx = () => {
+    
 
     const { cartItems } = useContext(CartContext)
     const { setLoggedInUser, logout, fullName, setFullName } = useContext(AppContext)
@@ -34,6 +35,18 @@ const Navbarjsx = () => {
         <Navbar expand="lg" className="bg-body-tertiary navbarjsx   ">
             <Container container-fluid>
                 <Navbar.Brand  >  <Link to={'/Layout'} className='logo'> <p><span>O</span>nline<span>S</span>tore</p> </Link> </Navbar.Brand>
+                <Dropdown>
+                    <Dropdown.Toggle style={{backgroundColor:'darkcyan', padding:'5px 15px'}} id="dropdown-basic">
+                        Categories
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                        <Dropdown.Item >   <Nav.Link as={Link} to='/MensLayout'>Men</Nav.Link></Dropdown.Item>
+                        <Dropdown.Item >   <Nav.Link as={Link} to='/WomensLayout'>Women</Nav.Link></Dropdown.Item>
+                        <Dropdown.Item >   <Nav.Link as={Link} to='/HouseLayout'>Home</Nav.Link></Dropdown.Item>
+                       
+                    </Dropdown.Menu>
+                </Dropdown>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -41,18 +54,14 @@ const Navbarjsx = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        {/* <Nav.Link as={Link} to='/beauty' >Beauty</Nav.Link>
-                        <Nav.Link as={Link} to='/home_decorate'>Home</Nav.Link>
-                        <Nav.Link as={Link} to='/women'>Women</Nav.Link>
-                        <Nav.Link as={Link} to='/kitchen'>Kitchen</Nav.Link> */}
+
                         <Nav.Link as={Link} to='/category/beauty'>Beauty</Nav.Link>
-                        <Nav.Link as={Link} to='/category/home_decorate'>Home Decor</Nav.Link>
-                        <Nav.Link as={Link} to='/category/women'>Women</Nav.Link>
-                        <Nav.Link as={Link} to='/category/kitchen'>Kitchen</Nav.Link>
+                        <Nav.Link as={Link} to='/category/home-decoration'>Home Decor</Nav.Link>
+                        <Nav.Link as={Link} to='/category/womens-dresses'>Women</Nav.Link>
+                        <Nav.Link as={Link} to='/category/kitchen-accessories'>Kitchen</Nav.Link>
 
                     </Nav>
 
-                    {/* <h5>TotalCost <span style={{backgroundColor:'black', color:'white', padding:'0px 5px ', borderRadius:'10px'}}>Rs.{total}</span></h5> */}
                     <Link to={'/CartTable'} className='cartLink'>
                         <h5 style={{ padding: "0px 20px" }}>
                             cart <sup className='sup_count'>{cartItems.length}</sup> <br />

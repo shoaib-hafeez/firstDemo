@@ -8,13 +8,18 @@ import image1 from '../assets/zarla-makeup-logos-4096x2731-20211110.webp';
 import image2 from '../assets/stylish-living-room-table-panorama-dark-cyan-color-wall-molding-modern-dining-transparent-chairs-new-sofa-210870549.webp';
 import image3 from '../assets/womans-hand-is-holding-colorful-paper-shopping-bags-style-dark-cyan-amber_921860-108369.avif';
 import Footer from '../components/Footer';
-
+// import { FaMale } from "react-icons/fa";
+// import { TbMoodKid } from "react-icons/tb";
+// import { GrRestroomWomen } from "react-icons/gr";
+// import { TbScreenShare } from "react-icons/tb";
+// import { FaCar } from "react-icons/fa";
 const Layout = () => {
 
   const [beautyProducts, setBeautyProducts] = useState([]);
   const [womenProducts, setWomenProducts] = useState([]);
   const [homeProducts, setHomeProducts] = useState([]);
   const [kitchenProducts, setKitchenProducts] = useState([]);
+  const [menShirtsProducts, setMenShirtsProducts] = useState([]);
 
 
   useEffect(() => {
@@ -35,6 +40,10 @@ const Layout = () => {
     fetch('https://dummyjson.com/products/category/kitchen-accessories')
       .then((res) => res.json())
       .then((json) => setKitchenProducts(json.products.slice(0, 4)));
+
+    fetch('https://dummyjson.com/products/category/mens-shirts')
+      .then((res) => res.json())
+      .then((json) => setMenShirtsProducts(json.products.slice(0, 4)));
   }, []);
 
 
@@ -57,6 +66,36 @@ const Layout = () => {
           </Carousel.Item>
         </Carousel>
       </div>
+      {/* <h3 style={{textAlign:'center'}}>Shop By Category</h3> <br /> */}
+      {/* <div className="shopCategory_cotainer">
+        
+      <Link to="/category/womens-dresses" className='seeMoreAction'>
+        <div className="shopCategory">
+        <span><FaMale /></span>
+         <h4>Mens</h4>
+        </div>
+      </Link>
+
+        <div className="shopCategory">
+        <span><GrRestroomWomen  /></span>
+        <h4>Womens</h4>
+        </div>
+
+        <div className="shopCategory">
+        <span><TbMoodKid /></span>
+        <h4>Kids</h4>
+        </div>
+
+        <div className="shopCategory">
+        <span><TbScreenShare /></span>
+        <h4>Electronics</h4>
+        </div>
+
+        <div className="shopCategory">
+        <span><FaCar /></span>
+        <h4>Vhicle</h4>
+        </div>
+      </div> */}
 
       <div className="productSection">
         <h1 style={{ textAlign: 'center' }}>Beauty</h1>
@@ -82,7 +121,7 @@ const Layout = () => {
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <Link to="/category/women" className='seeMoreAction'>
+          <Link to="/category/womens-dresses" className='seeMoreAction'>
             <button className="see-more-btn">See More</button>
           </Link>
         </div>
@@ -111,7 +150,21 @@ const Layout = () => {
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <Link to="/category/kitchen" className='seeMoreAction'>
+          <Link to="/category/kitchen-accessories" className='seeMoreAction'>
+            <button className="see-more-btn">See More</button>
+          </Link>
+        </div>
+      </div>
+      <div className="productSection">
+        <h1 style={{ textAlign: 'center' }}>Mens Shirt</h1>
+        <br />
+        <div className="product_container">
+          {menShirtsProducts.map((product, ind) => (
+            <ProCard product={product} key={ind} />
+          ))}
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <Link to="/category/mens-shirts" className='seeMoreAction'>
             <button className="see-more-btn">See More</button>
           </Link>
         </div>
