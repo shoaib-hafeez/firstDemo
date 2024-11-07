@@ -78,8 +78,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  border-top-right-radius: 100px;
-  border-bottom-right-radius: 100px;
+  /* border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px; */
   object-fit: cover;
 
 }
