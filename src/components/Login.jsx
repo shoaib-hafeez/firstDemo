@@ -5,10 +5,13 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../context/context';
 import { Link } from 'react-router-dom';
+// import useStore from '../ZustandStore/Store';
 
 const LoginForm = () => {
 
-    const { email, setEmail, password, setPassword , login } = useContext(AppContext)
+    const {  setEmail,  setPassword , login ,email , password} = useContext(AppContext)
+
+    // const {email , password} =useStore(state)
 
     const [validated, setValidated] = useState(false);
     const [emailError, setEmailError] = useState('');

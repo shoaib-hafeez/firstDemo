@@ -41,9 +41,9 @@ const Navbarjsx = () => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                        <Dropdown.Item >   <Nav.Link as={Link} to='/MensLayout'>Men</Nav.Link></Dropdown.Item>
-                        <Dropdown.Item >   <Nav.Link as={Link} to='/WomensLayout'>Women</Nav.Link></Dropdown.Item>
-                        <Dropdown.Item >   <Nav.Link as={Link} to='/HouseLayout'>Home</Nav.Link></Dropdown.Item>
+                        <Dropdown.Item >   <Nav.Link as={Link} to='/Mens'>Men</Nav.Link></Dropdown.Item>
+                        <Dropdown.Item >   <Nav.Link as={Link} to='/Womens'>Women</Nav.Link></Dropdown.Item>
+                        <Dropdown.Item >   <Nav.Link as={Link} to='/HomeDecorate'>HomeDecorate</Nav.Link></Dropdown.Item>
                        
                     </Dropdown.Menu>
                 </Dropdown>
@@ -56,7 +56,7 @@ const Navbarjsx = () => {
                     >
 
                         <Nav.Link as={Link} to='/category/beauty'>Beauty</Nav.Link>
-                        <Nav.Link as={Link} to='/category/home-decoration'>Home Decor</Nav.Link>
+                        <Nav.Link as={Link} to='/category/home-decoration'>HomeDecor</Nav.Link>
                         <Nav.Link as={Link} to='/category/womens-dresses'>Women</Nav.Link>
                         <Nav.Link as={Link} to='/category/kitchen-accessories'>Kitchen</Nav.Link>
 

@@ -6,11 +6,11 @@ import Footer from './Footer';
 import { MdDeleteForever } from "react-icons/md";
 import useCartTotal from '../hooks/useCartTotal';
 import { Link } from 'react-router-dom';
+// import useStore from '../ZustandStore/Store';  
 
 const CartTable = () => {
     const { cartItems, removeToCart, decrement, increment } = useContext(CartContext);
     const { total } = useCartTotal();
-
     const handleDecrement = (id, quantity) => {
         if (quantity === 1) {
             removeToCart(id);
@@ -22,10 +22,6 @@ const CartTable = () => {
     return (
         <div className='cartTable_jsx'>
             <NavbarJsx />
-
-            {/* <div className="cart_flex"> */}
-
-
             <div className="cartTable">
                 <h2>Shopping Cart</h2>
                 {cartItems.length > 0 ? (
@@ -55,8 +51,8 @@ const CartTable = () => {
                                     </td>
 
                                     <td>
-                                    <Link to={`/ProductDetails/${item.id}`}className='productTableLink'>
-                                        {item.title} <br />{item.tags}
+                                        <Link to={`/ProductDetails/${item.id}`} className='productTableLink'>
+                                            {item.title} <br />{item.tags}
                                         </Link>
                                     </td>
                                     <td>

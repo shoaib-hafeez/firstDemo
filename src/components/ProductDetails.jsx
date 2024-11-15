@@ -8,7 +8,7 @@ import { MdDeleteForever } from "react-icons/md";
 const ProductDetails = () => {
     const { id } = useParams();
     const { increment, decrement, cartItems, addToCart, removeFromCart, setProductDetails, productDetails } = useContext(CartContext);
-
+    
     const productInCart = cartItems.find(item => item.id === +id);
     const productQuantity = productInCart?.quantity || 0;
 

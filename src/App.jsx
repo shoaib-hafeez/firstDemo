@@ -54,21 +54,22 @@ function App() {
       element: <Thankyou/>,
     },
     {
-      path: "/MensLayout",
+      path: "/Mens",
       element: <MensLayout/>,
     },
+    // {
+    //   path: "/Category/:page",
+    //   element: <ProductDetails/>,
+    // },
     {
-      path: "/Category/:page",
-      element: <ProductDetails/>,
-    },
-    {
-      path: "/WomensLayout",
+      path: "/Womens",
       element: <WomensLayout/>,
     },
     {
-      path: "/HouseLayout",
+      path: "/HomeDecorate",
       element: <HouseLayout/>,
     },
+    
    
     
     

@@ -8,6 +8,8 @@ import image1 from '../assets/zarla-makeup-logos-4096x2731-20211110.webp';
 import image2 from '../assets/stylish-living-room-table-panorama-dark-cyan-color-wall-molding-modern-dining-transparent-chairs-new-sofa-210870549.webp';
 import image3 from '../assets/womans-hand-is-holding-colorful-paper-shopping-bags-style-dark-cyan-amber_921860-108369.avif';
 import Footer from '../components/Footer';
+import axios from 'axios';
+
 // import { FaMale } from "react-icons/fa";
 // import { TbMoodKid } from "react-icons/tb";
 // import { GrRestroomWomen } from "react-icons/gr";
@@ -20,30 +22,36 @@ const Layout = () => {
   const [homeProducts, setHomeProducts] = useState([]);
   const [kitchenProducts, setKitchenProducts] = useState([]);
   const [menShirtsProducts, setMenShirtsProducts] = useState([]);
+  const [productError, setProductError] = useState({})
 
 
   useEffect(() => {
 
+    // fetch('https://dummyjson.com/products/category/beauty')   //yeh simple fetch karny ka tareqa h 
+    //   .then((res) => res.json())   // is line m response m data aaraha h or phr responsw ko json m cnvrt kia jaaha h 
+    //   .then((json) => setBeautyProducts(json.products.slice(0, 4)));
 
-    fetch('https://dummyjson.com/products/category/beauty')
-      .then((res) => res.json())
-      .then((json) => setBeautyProducts(json.products.slice(0, 4)));
 
-    fetch('https://dummyjson.com/products/category/womens-dresses')
-      .then((res) => res.json())
-      .then((json) => setWomenProducts(json.products.slice(0, 4)));
+    // axios: axios api ko json m hi return karta h 
+    axios.get('https://dummyjson.com/products/category/beauty')
+      .then(response =>  setBeautyProducts(response.data.products.slice(0, 4)))
+      .catch(error => setProductError.error("Product Not Found:", error));
+         
+    axios.get('https://dummyjson.com/products/category/womens-dresses')
+    .then(response => setWomenProducts(response.data.products.slice(0, 4)))
+    .catch(error => setProductError.error("Product Not found:", error));
 
-    fetch('https://dummyjson.com/products/category/home-decoration')
-      .then((res) => res.json())
-      .then((json) => setHomeProducts(json.products.slice(0, 4)));
+    axios.get('https://dummyjson.com/products/category/home-decoration')
+    .then((response)=> setHomeProducts (response.data.products.slice(0,4)))
+    .catch(error => setProductError.error("Product Not found: ", error))
 
-    fetch('https://dummyjson.com/products/category/kitchen-accessories')
-      .then((res) => res.json())
-      .then((json) => setKitchenProducts(json.products.slice(0, 4)));
+    axios.get('https://dummyjson.com/products/category/kitchen-accessories')
+    .then(response => setKitchenProducts(response.data.products.slice(0,4)))
+    .catch(error=> setProductError.error('Products Not Found:', error))
 
-    fetch('https://dummyjson.com/products/category/mens-shirts')
-      .then((res) => res.json())
-      .then((json) => setMenShirtsProducts(json.products.slice(0, 4)));
+    axios.get('https://dummyjson.com/products/category/mens-shirts')
+    .then(response=> setMenShirtsProducts(response.data.products.slice(0 ,4)))
+    .catch(error => setProductError('products Not Found',error))
   }, []);
 
 

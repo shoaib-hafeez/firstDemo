@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Navbarjsx from '../components/Navbar';
 import ProCard from '../components/ProductCard';
+import axios from 'axios'
 // import heroImg from "../../assets/"
 import heroImg from "../assets/depositphotos_547621056-stock-illustration-women-fashion-clothes-isolated-white.jpg";
 
@@ -19,19 +20,18 @@ const WomensLayout = () => {
     useEffect(() => {
 
 
-        fetch('https://dummyjson.com/products/category/womens-dresses')
-            .then((res) => res.json())
-            .then((json) => setDressProducts(json.products.slice(0, 4)));
+          axios.get('https://dummyjson.com/products/category/womens-dresses')
+            .then(response => setDressProducts(response.data.products.slice(0, 4)))
+            .catch(error=> console.error("Product Not Found ", error))
 
-        fetch('https://dummyjson.com/products/category/womens-watches')
-            .then((res) => res.json())
-            .then((json) => setWatchesProducts(json.products.slice(0, 4)));
+        axios.get('https://dummyjson.com/products/category/womens-watches')
+            .then(response => setWatchesProducts(response.data.products.slice(0, 4)))
+            .catch(error => console.error('Product Not Found ', error))
 
-        fetch('https://dummyjson.com/products/category/womens-jewellery')
-            .then((res) => res.json())
-            .then((json) => setJewelleryProducts(json.products.slice(0, 4)));
+        axios.get('https://dummyjson.com/products/category/womens-jewellery')
+            .then(response => setJewelleryProducts(response.data.products.slice(0, 4)));
 
-        fetch('https://dummyjson.com/products/category/womens-shoes')
+        axios.get('https://dummyjson.com/products/category/womens-shoes')
             .then((res) => res.json())
             .then((json) => setShoesProducts(json.products.slice(0, 4)));
 

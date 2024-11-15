@@ -78,8 +78,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  /* border-top-right-radius: 100px;
-  border-bottom-right-radius: 100px; */
   object-fit: cover;
 
 }
@@ -104,11 +102,7 @@
   margin-top: 50px;
   padding: 20px 20px;
   margin: 40px auto;
-
   backdrop-filter: blur(10px);
-  /* backdrop-filter: invert(80%);
-  backdrop-filter: sepia(90%); */
-  /* border: 1px solid black; */
   border-radius: 15px;
 }
 
@@ -202,10 +196,11 @@
 
 .see-more-btn {
   all: unset;
-  background-color: rgb(120, 116, 116);
-  padding: 5px 30px;
+  background-color:darkcyan;
+  padding: 5px 70px;
   border-radius: 20px;
   color: white;
+  border: black 1px solid;
 
 }
 

@@ -17,6 +17,7 @@ const CartProvider = ({ children }) => {
             item.id === id ? { ...item, quantity: item.quantity + 1 } : item
         ));
     };
+    
 
     const decrement = (id) => {
         setCartItems((prevItems) =>
@@ -51,7 +52,8 @@ const CartProvider = ({ children }) => {
         setCartItems([])
     }
 
-    return (<CartContext.Provider
+    return (
+    <CartContext.Provider
         value={{
             cartItems, addToCart,
             removeToCart,

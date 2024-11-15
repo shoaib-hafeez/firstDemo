@@ -4,26 +4,27 @@ import Footer from '../components/Footer';
 import Navbarjsx from '../components/Navbar';
 import ProCard from '../components/ProductCard';
 import heroImg from "../assets/banner_5.1.webp";
+import axios from 'axios'
 
 
-const WomensLayout = () => {
+
+const HouseLayout = () => {
 
     const [furnitureProducts, setFurnitureProducts] = useState([]);
     const [kitchenProducts, setKitchenProducts] = useState([]);
+     
 
 
 
     useEffect(() => {
+             
+        axios.get('https://dummyjson.com/products/category/furniture')
+        .then(response=> setFurnitureProducts(response.data.products.slice(0,4)))
+        .catch(error => console.error('product not found ', error))
 
-
-        fetch('https://dummyjson.com/products/category/furniture')
-            .then((res) => res.json())
-            .then((json) => setFurnitureProducts(json.products.slice(0, 4)));
-
-        fetch('https://dummyjson.com/products/category/kitchen-accessories')
-            .then((res) => res.json())
-            .then((json) => setKitchenProducts(json.products.slice(0, 4)));
-
+       axios.get('https://dummyjson.com/products/category/kitchen-accessories')
+        .then(response => setKitchenProducts(response.data.products.slice(0,4)))
+        .catch(error=> console.error('product not found', error))
 
 
     }, []);
@@ -80,4 +81,4 @@ const WomensLayout = () => {
     );
 };
 
-export default WomensLayout;
+export default HouseLayout;

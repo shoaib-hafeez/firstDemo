@@ -54,9 +54,7 @@ const SignupForm = () => {
       existingUsers.push(newUser);
 
       localStorage.setItem('users', JSON.stringify(existingUsers));
-
       signup({ email, password, fullName });
-
       navigate('/Layout');
       setFullName('');
       setEmail('');

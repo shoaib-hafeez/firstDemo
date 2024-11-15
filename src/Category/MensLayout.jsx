@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Navbarjsx from '../components/Navbar';
 import ProCard from '../components/ProductCard';
-
+import axios from 'axios';
 import heroImg from "../assets/QLCS-10507_QSRS_Marketplace-HCP-Updates_Mobile_768x300_Men_V1.jpg"
 
 const MensLayout = () => {
@@ -20,21 +20,20 @@ const MensLayout = () => {
   useEffect(() => {
 
 
-    fetch('https://dummyjson.com/products/category/mens-shirts')
-      .then((res) => res.json())
-      .then((json) => setShirtProducts(json.products.slice(0, 4)));
+    axios.get('https://dummyjson.com/products/category/mens-shirts')
+      .then(response => setShirtProducts(response.data.products.slice(0,4)))
+      .catch(error => console.error('Data Not Found ', error))
 
-    fetch('https://dummyjson.com/products/category/mens-shoes')
-      .then((res) => res.json())
-      .then((json) => setShoesProducts(json.products.slice(0, 4)));
+    axios.get('https://dummyjson.com/products/category/mens-shoes')
+      .then(response => setShoesProducts(response.data.products.slice(0, 4)))
+      .catch(error => console.error("Data Not Found ", error))
 
-    fetch('https://dummyjson.com/products/category/mens-watches')
-      .then((res) => res.json())
-      .then((json) => setWatchesProducts(json.products.slice(0, 4)));
+    axios.get('https://dummyjson.com/products/category/mens-watches')
+      .then(response => setWatchesProducts(response.data.products.slice(0, 4)))
+      .catch(error => console.error('Data Not Found', error))
 
-    fetch('https://dummyjson.com/products/category/fragrances')
-      .then((res) => res.json())
-      .then((json) => setFragrancesProducts(json.products.slice(0, 4)));
+    axios.get('https://dummyjson.com/products/category/fragrances')
+      .then(response => setFragrancesProducts(response.data.products.slice(0, 4)));
 
 
   }, []);

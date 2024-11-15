@@ -3,23 +3,23 @@ import NavbarJsx from './Navbar';
 import ProCard from './ProductCard';
 import Footer from './Footer';
 import { useParams } from 'react-router-dom';
+import axios from 'axios'
 
 const Category = () => {
   const { categoryName } = useParams();
   const [categoryProducts, setCategoryProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-const  number = categoryProducts.length;
-console.log(number)
+
+
   useEffect(() => {
     setLoading(true);
     
     const fetchData = async () => {
       try {
-        const res = await fetch(`https://dummyjson.com/products/category/${categoryName}`);
-        const json = await res.json();
+        const res = await axios.get(`https://dummyjson.com/products/category/${categoryName}`);
 
         setTimeout(() => {
-          setCategoryProducts(json.products);
+          setCategoryProducts(res.data.products);
           setLoading(false);
         }, 1000);
       } catch (error) {
