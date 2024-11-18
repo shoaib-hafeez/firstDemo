@@ -20,7 +20,7 @@ const Navbarjsx = () => {
 
 
     const storedUser = JSON.parse(localStorage.getItem('signedUpUser'));
-    const username = storedUser.fullName;
+    const username = storedUser.fullName.toUpperCase().slice(0,1);
 
 
     const [userName, setUserName] = useState('');

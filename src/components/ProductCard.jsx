@@ -43,7 +43,6 @@ const ProductCard = (props) => {
 
           <div className="btns" style={{ display: 'flex', gap: '5px' }}>
 
-
             {!addButton && !cartItem && (
               <Button onClick={handleAddToCart} className='addtocartBtn'>
                 Add to cart
@@ -53,8 +52,6 @@ const ProductCard = (props) => {
             {(addButton || cartItem) && (
               <div className="quantity-controls" style={{ alignItems: 'center', display: 'flex' }}>
                 <span style={{ color: 'black' }}>Qty = </span>
-
-
                 {cartItem?.quantity > 0 && (
                   <>
                     <button className='cardMinusBtn' onClick={handleDecrement}>-</button>
